@@ -4,6 +4,13 @@ from filetypes import FileTypes
 from genericconverter import GenericConverter
 
 root = tk.Tk()
+root.title('Image Converter')
+
+root.update()
+root.minsize(root.winfo_width() + 75, root.winfo_height())
+x_cordinate = int((root.winfo_screenwidth() / 2) - (root.winfo_width() / 2))
+y_cordinate = int((root.winfo_screenheight() / 2) - (root.winfo_height() / 2))
+root.geometry("+{}+{}".format(x_cordinate, y_cordinate-20))
 
 current_from = tk.StringVar(value=FileTypes.HEIC.value)
 options_from = [option.value for option in FileTypes]
