@@ -26,7 +26,7 @@ class GenericConverter:
                 case 'WEBP':
                     image = Image.open(image_path).convert('RGB')
                 case 'SVG':
-                    image = svg2png(url=image_path, write_to=image_path.replace(self.s_extension, '.png'))
+                    image = svg2png(url=image_path, write_to=image_path.replace(self.s_extension, self.t_extension))
                     exit()
                 case _:
                     image = Image.open(image_path)
