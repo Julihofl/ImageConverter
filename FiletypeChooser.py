@@ -29,7 +29,7 @@ optionmenu_from.grid(row=0, column=1, padx=20)
 
 current_to = tk.StringVar()
 default_to = FileTypes.PNG.value
-options_to = [option.value for option in FileTypes if option.value not in ["JPG", "HEIC", "SVG"]]
+options_to = [option.value for option in FileTypes if option.value not in ["JPG", "HEIC", "SVG", "TIF"]]
 options_to.sort()
 
 label_to = ttk.Label(root, text='File type to convert to:')

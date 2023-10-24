@@ -9,3 +9,4 @@ class FileTypes(Enum):
     ICO = ('ICO')
     SVG = ('SVG')
     PNG = ('PNG')
+    TIF = ('TIF')
