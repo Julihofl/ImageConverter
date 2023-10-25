@@ -7,6 +7,7 @@ from genericconverter import GenericConverter
 def main():
     root = tk.Tk()
     root.title('Image Converter')
+    root.iconbitmap('images\\icon.ico')
 
     sv.set_theme("dark")
 
