@@ -1,8 +1,18 @@
+import os
+# Ermitteln des aktuellen Arbeitsverzeichnisses
+current_directory = os.getcwd()
+# Den relativen Pfad vom aktuellen Verzeichnis aus erstellen
+relative_path = os.path.join(current_directory, 'lib')
+print(relative_path)
+# Zum PATH-Umgebungsvariable hinzufügen
+os.environ['PATH'] += ';' + relative_path
+
 from PIL import Image
 from pillow_heif import register_heif_opener
 import tkinter as tk
 from tkinter import filedialog
 from cairosvg import svg2png
+from pdf2image import convert_from_path
 
 register_heif_opener()
 
@@ -27,6 +37,13 @@ class GenericConverter:
                     image = Image.open(image_path).convert('RGB')
                 case 'SVG':
                     image = svg2png(url=image_path, write_to=image_path.replace(self.s_extension, self.t_extension))
+                    exit()
+                case 'PDF':
+                    image = convert_from_path(image_path)
+                    for page in image:
+                        image_path = image_path.removesuffix(self.s_extension)
+                        image_path += '_' + str(image.index(page) + 1) + self.t_extension
+                        page.save(image_path, self.target)
                     exit()
                 case _:
                     image = Image.open(image_path)

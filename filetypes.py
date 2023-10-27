@@ -10,3 +10,4 @@ class FileTypes(Enum):
     SVG = ('SVG')
     PNG = ('PNG')
     TIF = ('TIF')
+    PDF = ('PDF')
