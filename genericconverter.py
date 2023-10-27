@@ -1,17 +1,12 @@
-import os
-# Ermitteln des aktuellen Arbeitsverzeichnisses
-current_directory = os.getcwd()
-# Den relativen Pfad vom aktuellen Verzeichnis aus erstellen
-relative_path = os.path.join(current_directory, 'dependencies')
-# Zum PATH-Umgebungsvariable hinzufügen
-os.environ['PATH'] += ';' + relative_path
-
 from PIL import Image
 from pillow_heif import register_heif_opener
 import tkinter as tk
 from tkinter import filedialog
-from cairosvg import svg2png
 from pdf2image import convert_from_path
+from wand.api import library
+import wand.color
+import wand.image
+import io
 
 register_heif_opener()
 
@@ -35,7 +30,15 @@ class GenericConverter:
                 case 'WEBP':
                     image = Image.open(image_path).convert('RGB')
                 case 'SVG':
-                    image = svg2png(url=image_path, write_to=image_path.replace(self.s_extension, self.t_extension))
+                    with io.open(image_path, "rb") as svg_file:
+                        with wand.image.Image() as image:
+                            with wand.color.Color('transparent') as background_color:
+                                library.MagickSetBackgroundColor(image.wand, background_color.resource) 
+                            image.read(blob=svg_file.read(), format="svg")
+                            png_image = image.make_blob("png32")
+                    image_path = image_path.replace(self.s_extension, self.t_extension)
+                    with open(image_path, "wb") as out:
+                        out.write(png_image)
                     exit()
                 case 'PDF':
                     image = convert_from_path(image_path)
