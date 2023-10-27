@@ -2,8 +2,7 @@ import os
 # Ermitteln des aktuellen Arbeitsverzeichnisses
 current_directory = os.getcwd()
 # Den relativen Pfad vom aktuellen Verzeichnis aus erstellen
-relative_path = os.path.join(current_directory, 'lib')
-print(relative_path)
+relative_path = os.path.join(current_directory, 'dependencies')
 # Zum PATH-Umgebungsvariable hinzufügen
 os.environ['PATH'] += ';' + relative_path
 
@@ -41,9 +40,9 @@ class GenericConverter:
                 case 'PDF':
                     image = convert_from_path(image_path)
                     for page in image:
-                        image_path = image_path.removesuffix(self.s_extension)
-                        image_path += '_' + str(image.index(page) + 1) + self.t_extension
-                        page.save(image_path, self.target)
+                        temp_path = image_path.removesuffix(self.s_extension)
+                        temp_path += '_' + str(image.index(page) + 1) + self.t_extension
+                        page.save(temp_path, self.target)
                     exit()
                 case _:
                     image = Image.open(image_path)
