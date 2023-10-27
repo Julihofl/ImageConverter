@@ -3,11 +3,12 @@ import sv_ttk as sv
 from tkinter import ttk
 from filetypes import FileTypes
 from genericconverter import GenericConverter
+import os
 
 def main():
     root = tk.Tk()
     root.title('Image Converter')
-    root.iconbitmap('images\\icon.ico')
+    root.iconbitmap(resource_path('images\\icon.ico'))
 
     sv.set_theme("dark")
 
@@ -42,6 +43,14 @@ def main():
     button_convert.grid(row=2, column=0, columnspan=2, pady=10)
 
     root.mainloop()
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 if __name__ == '__main__':
     main()
