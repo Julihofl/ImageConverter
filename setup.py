@@ -4,7 +4,7 @@ base = "Win32GUI"
 
 include_files = [("images", "images")]
 
-executables = [Executable("FiletypeChooser.py", base=base)]
+executables = [Executable("imageconverter.py", base=base)]
 
 packages = ["idna", 
             "tkinter", 
@@ -26,7 +26,7 @@ options = {
 setup(
     name = "Image Converter",
     options = options,
-    version = "1.0",
-    description = 'Image Converter by Julian',
+    version = "1.1",
+    description = 'Image Converter',
     executables = executables
 )
