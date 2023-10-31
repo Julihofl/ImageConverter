@@ -1,7 +1,6 @@
 # ImageConverter
-![image](https://github.com/Julihofl/ImageConverter/assets/134228987/85b28009-0c07-484a-95b2-2867da12f439)
-![image](https://github.com/Julihofl/ImageConverter/assets/134228987/34348371-8e54-4b29-bf62-d28f1db53b35)
-
+![image](https://github.com/Julihofl/ImageConverter/assets/134228987/d2cb8b1e-89c4-4d23-b80b-bbd2800ca252)
+![image](https://github.com/Julihofl/ImageConverter/assets/134228987/d72ecf67-3b08-41e0-865e-a8ed7b2a5524)
 
 ## Features
 <table>
