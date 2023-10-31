@@ -49,6 +49,7 @@ def main():
 
 def open_about_window(root):
     about_window = tk.Toplevel(root)
+    
     about_window.update()
     about_window.minsize(about_window.winfo_width() + 100, about_window.winfo_height() - 35)
     x_cordinate = int((about_window.winfo_screenwidth() / 2) - (about_window.winfo_width() / 2))
@@ -56,8 +57,11 @@ def open_about_window(root):
     about_window.geometry("+{}+{}".format(x_cordinate, y_cordinate-20))
     about_window.resizable(False, False)
     about_window.title('About')
+    about_window.iconbitmap('images\\icon.ico')
+
     label = tk.Label(about_window, text='\n\nVersion 1.1\n\n2023')
     label.pack()
+
     link = tk.Label(about_window, text='\nhttps://github.com/Julihofl/ImageConverter')
     link.bind("<Button-1>", lambda e: callback("https://github.com/Julihofl/ImageConverter"))
     link.pack()

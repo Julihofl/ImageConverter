@@ -6,7 +6,17 @@ include_files = [("images", "images")]
 
 executables = [Executable("FiletypeChooser.py", base=base)]
 
-packages = ["idna", "tkinter", "sv_ttk", "webbrowser", "filetypes", "genericconverter", "pillow_heif", "PIL", "pdf2image", "wand", "io"]
+packages = ["idna", 
+            "tkinter", 
+            "sv_ttk", 
+            "webbrowser", 
+            "filetypes", 
+            "genericconverter", 
+            "pillow_heif", 
+            "PIL", 
+            "pdf2image", 
+            "wand", 
+            "io"]
 options = {
     'build_exe': {    
         'packages':packages,
