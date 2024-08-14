@@ -1,6 +1,6 @@
 from enum import Enum
 
-class FileTypes(Enum):
+class Filetypes(Enum):
     HEIC = ('HEIC')
     JPEG = ('JPEG')
     JPG = ('JPG')
