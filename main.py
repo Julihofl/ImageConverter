@@ -54,7 +54,7 @@ class ImageConverterApp:
         about_window.title('About')
         about_window.iconbitmap('images\\icon.ico')
 
-        label = tk.Label(about_window, text='\n\nVersion 1.1\n\n2023')
+        label = tk.Label(about_window, text='\n\nVersion 1.2\n\n2023')
         label.pack()
 
         link = tk.Label(about_window, text='\nhttps://github.com/Julihofl/ImageConverter', fg="blue", cursor="hand2")
